@@ -5,13 +5,14 @@ public class TrybankLib
     public bool Logged;
     public int loggedUser;
 
-    //0 -> Número da conta
-    //1 -> Agência
-    //2 -> Senha
-    //3 -> Saldo
+    public const int ACCOUNT_NUMBER_POS = 0;
+    public const int ACCOUNT_AGENCY_POS = 1;
+    public const int ACCOUNT_PWD_POS = 2;
+    public const int ACCOUNT_BALANCE_POS = 3;
     public int[,] Bank;
     public int registeredAccounts;
     private int maxAccounts = 50;
+
 
     public TrybankLib()
     {
@@ -24,7 +25,18 @@ public class TrybankLib
     // 1. Construa a funcionalidade de cadastrar novas contas
     public void RegisterAccount(int number, int agency, int pass)
     {
-        throw new NotImplementedException();
+        for(int i = 0; i <= registeredAccounts; i++) {
+            if(Bank[i, 0] == number && Bank[i, 1] == agency){
+                throw new ArgumentException("A conta já está sendo usada!");
+            }
+        }
+
+        Bank[registeredAccounts,ACCOUNT_NUMBER_POS] = number;
+        Bank[registeredAccounts,ACCOUNT_AGENCY_POS] = agency;
+        Bank[registeredAccounts,ACCOUNT_PWD_POS] = pass;
+        Bank[registeredAccounts,ACCOUNT_BALANCE_POS] = 0;
+
+        registeredAccounts+= 1;
     }
 
     // 2. Construa a funcionalidade de fazer Login
