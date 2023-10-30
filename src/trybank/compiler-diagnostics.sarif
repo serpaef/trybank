@@ -20,9 +20,9 @@
               "resultFile": {
                 "uri": "file:///home/serpa/csharp-001-projeto-trybank/src/trybank/Trybank.cs",
                 "region": {
-                  "startLine": 52,
+                  "startLine": 54,
                   "startColumn": 50,
-                  "endLine": 52,
+                  "endLine": 54,
                   "endColumn": 51
                 }
               }
