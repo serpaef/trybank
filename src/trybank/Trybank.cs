@@ -1,3 +1,5 @@
+using System.Data;
+
 namespace Trybank.Lib;
 
 public class TrybankLib
@@ -42,7 +44,30 @@ public class TrybankLib
     // 2. Construa a funcionalidade de fazer Login
     public void Login(int number, int agency, int pass)
     {
-        throw new NotImplementedException();
+        int retrievedPass = 0;
+        int accountPosition = -1;
+
+        if (Logged) throw new AccessViolationException("Usuário já está logado");
+        
+        for (int i = 0; i <= registeredAccounts; i++)
+        {
+            if (Bank[i,ACCOUNT_NUMBER_POS] == number && Bank[i,ACCOUNT_AGENCY_POS] == agency)
+            {
+                accountPosition = i;
+                retrievedPass = Bank[i,ACCOUNT_PWD_POS];
+                break;
+            }
+
+            throw new ArgumentException("Agência + Conta não encontrada");
+        }
+
+        if (retrievedPass != pass)
+        {
+            throw new ArgumentException("Senha incorreta");
+        }
+
+        loggedUser = accountPosition;
+        Logged = true;
     }
 
     // 3. Construa a funcionalidade de fazer Logout
