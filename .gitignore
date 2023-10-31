@@ -400,3 +400,4 @@ FodyWeavers.xsd
 
 # Mac files
 *.DS_Store
+src/trybank.Test.Test
