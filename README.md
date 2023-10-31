@@ -1,4 +1,7 @@
 # :construction: README em construção ! :construction:
+
+A parte desenvolvida por mim foi apenas o que está em src/trybank/Trybank.cs
+O restante foi feito pela equipe da Trybe
 <!-- Olá, Tryber!
 Esse é apenas um arquivo inicial para o README do seu projeto.
 É essencial que você preencha esse documento por conta própria, ok?
